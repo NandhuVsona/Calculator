@@ -1,212 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cars</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
   <style>
     * {
       margin: 0%;
-      padding: 0;
+      padding: 0%;
       box-sizing: border-box;
+      user-select: none;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
 
-    body {
-      width: 100%;
-      min-height: 100vh;
-    }
-
-    h1 {
-      margin-left: 40px;
-    }
-
-    header>h1::before {
-      content: '';
-      position: absolute;
-      width: 250px;
-      height: 35px;
-      object-fit: cover;
-      background: url(rr.png);
-      background-size: contain;
-      object-position: center;
-      background-repeat: no-repeat;
-      left: 0;
-
-    }
-
-    header {
+    .container {
       display: flex;
-      justify-content: space-between;
-      padding: 10px 15px;
+      justify-content: center;
       align-items: center;
-      animation: header 2s ease-in-out;
-    }
-
-    @keyframes header {
-      0% {
-        transform: translateY(-100px)
-      }
-    }
-
-    ul>li {
-      list-style: none;
-      display: inline-block;
-      font-weight: 600;
-      margin: 10px 20px;
-    }
-
-    .main {
+      height: 100vh;
       width: 100%;
-      display: flex;
+      background: #e0e0e0;
+      border-radius: 5px;
+      gap: 50px;
     }
-
-    .content {
-      width: 50%;
-      margin-top: 8%;
-      margin-left: 3%;
-      animation: content 2s ease-in-out;
-    }
-
-    @keyframes content {
-      0% {
-        transform: translateX(-50%)
-      }
-    }
-
-    .content h2 {
-      font-size: 80px;
-      margin-bottom: 1%;
-      letter-spacing: 8px;
-    }
-
-    .content h3 {
-      font-size: 25px;
-      margin-bottom: 3%;
-    }
-
-    .content p {
-      font-size: 20px;
-      margin-bottom: 3%;
-      font-family: Verdana, Geneva, sans-serif;
-    }
-
     button {
-      padding: 15px 30px;
-      border-radius: 10px;
-      margin: 6px;
-      background-color: transparent;
-      transition: all .5s ease;
+      width: 70px;
+      height: 70px;
+      border: none;
+      text-align: center;
+line-height: 70px;
+
+      cursor: pointer;
+      font-size: 40px;
+      border-radius: 50%;
+      font-weight: 550;
+      background: #e0e0e0;
+      box-shadow: 14px 14px 28px #c3c3c3, -14px -14px 28px #fdfdfd;
     }
-
-    button:hover {
-      background-color: black;
-      color: white;
-    }
-
-    .image {
-      width: 50%;
-      margin-top: 12%;
-      margin-right: 3%;
-      z-index: -1;
-    }
-
-    img {
-      width: 100%;
-      animation: car 3s ease-in-out;
-
-    }
-
-    @keyframes car {
-      0% {
-        transform: translateX(100%)
-      }
-    }
-
-    @media screen and (max-width:1200px) {
-      .content {
-        width: 100%;
-        text-align: center;
-      }
-
-      .image {
-        width: 100%;
-        margin-top: 12%;
-        margin-right: 3%;
-        position: absolute;
+    section{
         display: flex;
-        justify-content: center;
-        bottom: -5%;
-      }
-
-      img {
-        width: 50%;
-      }
+        height: 100px;
+        justify-content: space-around;
+        align-items: flex-end;
     }
-
-    @media screen and (max-width:576px) {
-      .content {
+    main{
         width: 100%;
-        text-align: center;
-      }
-
-      .content h2,
-      .content h3,
-      .content p {
-        margin-bottom: 5%;
-      }
-
-      .image {
-        width: 100%;
-        margin-top: 12%;
-        margin-right: 3%;
-        position: absolute;
+        height: 100%;
+        background-color: rgb(217, 218, 218);
         display: flex;
-        justify-content: center;
-        bottom: -5%;
-      }
-
-      img {
-        width: 80%;
-      }
-
-      ul>li {
-        list-style: none;
-        display: inline-block;
-        font-weight: 700;
-        margin: 10px 5px;
-      }
+        flex-direction: column;
+        justify-content: end;
+       padding: 10px 10px 30px 10px;
+    
     }
+    button:active{
+        transform: scale(0.95);
+    }
+    .equal{
+        background-color: rgb(0, 195, 255);
+        color: #ffffff;
+    }
+    .display{
+        width: 100%;
+        height: 30%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: end;
+        flex-direction: column;
+        font-size: 50px;
+        gap: 10px;
+    }
+    .values{
+        opacity: .7;
+    }
+   
+    .add,.del,.division,.modulus,.multiply,.sub,.clear{
+        background-color: rgb(255, 170, 0);
+    }
+    
   </style>
-</head>
-
-<body>
-  <header>
-    <h1>Rolls-Royce</h1>
-    <nav>
-      <ul>
-        <li>Home</li>
-        <li>Collections</li>
-        <li>About</li>
-      </ul>
-    </nav>
-  </header>
-  <div class="main">
-    <div class="content">
-      <h2>GHOST</h2>
-      <h3>PURE EXPRESSION</h3>
-      <p>Ghost presents a world of boundless potential. Its purity liberates the imagination, inviting you to craft a
-        motor car that is a complete original. There are no limits to what Ghost can become — all one has to do is
-        imagine.</p>
-      <button>MAKE AN ENQUIRY
-      </button>
-      <button>VIEW IN DETAIL
-      </button>
+  <body>
+    <div class="container">
+      
+      <main>
+        <div class="display">
+            <div class="values">2+2</div>
+            <div class="answer">=4</div>
+        </div>
+        <section class="top">
+            <button class="btns clear">C</button>
+            <button class="btns del">D</button>
+            <button class="btns modulus">%</button>
+            <button class="btns division">/</button>
+          </section>
+        <section>
+            <button class="btns">7</button>
+            <button class="btns">8</button>
+            <button class="btns">9</button>
+            <button class="btns multiply">x</button>
+          </section>
+          <section>
+            <button class="btns">4</button>
+            <button class="btns">5</button>
+            <button class="btns">6</button>
+            <button class="btns sub">-</button>
+          </section>
+          <section>
+            <button class="btns">1</button>
+            <button class="btns">2</button>
+            <button class="btns">3</button>
+            <button class="btns add">+</button>
+          </section>
+          <section>
+            <button class="btns"></button>
+            <button class="btns">0</button>
+            <button class="btns dot">.</button>
+            <button class="equal btns">=</button>
+          </section>
+      </main>
     </div>
-    <div class="image">
-      <img src="car.png" alt="">
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
