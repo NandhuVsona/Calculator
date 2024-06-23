@@ -15,8 +15,7 @@
     * {
       margin: 0%;
       padding: 0%;
-      box-sizing: border-box;
-      user-select: none;
+
       box-sizing: border-box;
       font-family: "Poppins", sans-serif;
     }
@@ -36,7 +35,7 @@
       height: 70px;
       border: none;
       text-align: center;
-line-height: 70px;
+      line-height: 70px;
 
       cursor: pointer;
       font-size: 40px;
@@ -45,87 +44,121 @@ line-height: 70px;
       background: #e0e0e0;
       box-shadow: 14px 14px 28px #c3c3c3, -14px -14px 28px #fdfdfd;
     }
-    section{
-        display: flex;
-        height: 100px;
-        justify-content: space-around;
-        align-items: flex-end;
+    section {
+      display: flex;
+      height: 100px;
+      justify-content: space-around;
+      align-items: flex-end;
     }
-    main{
-        width: 100%;
-        height: 100%;
-        background-color: rgb(217, 218, 218);
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-       padding: 10px 10px 30px 10px;
+    main {
+      width: 100%;
+      height: 100%;
+      background-color: rgb(217, 218, 218);
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: 10px 10px 30px 10px;
+    }
+    button:active {
+      transform: scale(0.95);
     
     }
-    button:active{
-        transform: scale(0.95);
+    .equal {
+      background-color: rgb(0, 195, 255);
+      color: #ffffff;
     }
-    .equal{
-        background-color: rgb(0, 195, 255);
-        color: #ffffff;
+    .display {
+      width: 100%;
+      height: 30%;
+      overflow: scroll;
+      display: flex;
+      justify-content: flex-end;
+      align-items: end;
+      flex-direction: column;
+      font-size: 50px;
+      gap: 10px;
+      padding-right: 30px;
     }
-    .display{
-        width: 100%;
-        height: 30%;
-        display: flex;
-        justify-content: flex-end;
-        align-items: end;
-        flex-direction: column;
-        font-size: 50px;
-        gap: 10px;
+    .values {
+      opacity: 0.7;
     }
-    .values{
-        opacity: .7;
+
+    .add,
+    .del,
+    .division,
+    .modulus,
+    .multiply,
+    .sub,
+    .clear {
+      background-color: rgb(255, 170, 0);
     }
-   
-    .add,.del,.division,.modulus,.multiply,.sub,.clear{
-        background-color: rgb(255, 170, 0);
-    }
-    
   </style>
   <body>
     <div class="container">
-      
       <main>
         <div class="display">
-            <div class="values">2+2</div>
-            <div class="answer">=4</div>
+          <div class="values"></div>
+          <div class="answer"></div>
         </div>
         <section class="top">
-            <button class="btns clear">C</button>
-            <button class="btns del">D</button>
-            <button class="btns modulus">%</button>
-            <button class="btns division">/</button>
-          </section>
+          <button value="c" class="btns clear">C</button>
+          <button class="btns del">D</button>
+          <button value="%" class="btns modulus">%</button>
+          <button value="/" class="btns division">/</button>
+        </section>
         <section>
-            <button class="btns">7</button>
-            <button class="btns">8</button>
-            <button class="btns">9</button>
-            <button class="btns multiply">x</button>
-          </section>
-          <section>
-            <button class="btns">4</button>
-            <button class="btns">5</button>
-            <button class="btns">6</button>
-            <button class="btns sub">-</button>
-          </section>
-          <section>
-            <button class="btns">1</button>
-            <button class="btns">2</button>
-            <button class="btns">3</button>
-            <button class="btns add">+</button>
-          </section>
-          <section>
-            <button class="btns"></button>
-            <button class="btns">0</button>
-            <button class="btns dot">.</button>
-            <button class="equal btns">=</button>
-          </section>
+          <button value="7" class="btns">7</button>
+          <button value="8" class="btns">8</button>
+          <button value="9" class="btns">9</button>
+          <button value="*" class="btns multiply">x</button>
+        </section>
+        <section>
+          <button value="4" class="btns">4</button>
+          <button value="5" class="btns">5</button>
+          <button value="6" class="btns">6</button>
+          <button value="-" class="btns sub">-</button>
+        </section>
+        <section>
+          <button value="1" class="btns">1</button>
+          <button value="2" class="btns">2</button>
+          <button value="3" class="btns">3</button>
+          <button value="+" class="btns add">+</button>
+        </section>
+        <section>
+          <button class="btns"></button>
+          <button value="0" class="btns">0</button>
+          <button value="." class="btns dot">.</button>
+          <button value="=" class="equal btns">=</button>
+        </section>
       </main>
     </div>
+    <script>
+        
+      let btns = document.querySelectorAll(".btns");
+      let values = document.querySelector(".values");
+      let result = document.querySelector(".answer");
+      let query = "";
+      
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (btn.value == "=") {
+            values.innerHTML = eval(query);
+            result.innerHTML = "";
+            query = eval(query);
+            return;
+          }
+          else if(btn.value === 'c'){
+            values.innerHTML = ''
+            query = ' '
+            result.innerHTML = ''
+            return;
+          }
+          values.innerHTML += btn.value;
+          query += btn.value;
+
+          result.innerHTML = eval(query);
+        });
+      });
+    </script>
   </body>
 </html>
